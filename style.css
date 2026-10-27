@@ -1,0 +1,253 @@
+/* Lockdown League: shared styles. Games can link this too: <link rel="stylesheet" href="../../style.css"> */
+
+:root {
+  --night: #140f2e;
+  --night-2: #211a4a;
+  --night-3: #2e2566;
+  --cream: #fff4dc;
+  --muted: #b8afdc;
+  --violet: #9b6bff;
+  --sun: #ffcf3d;
+  --aqua: #33e1e8;
+  --pink: #ff4f9a;
+  --gutter: clamp(16px, 4vw, 48px);
+  --pixel: "Silkscreen", monospace;
+  --text: "Chakra Petch", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--cream);
+  font: 400 1.05rem/1.6 var(--text);
+}
+
+a { color: var(--aqua); }
+a:focus-visible, .btn:focus-visible { outline: 3px dashed var(--sun); outline-offset: 4px; }
+
+h1, h2, h3 { font-family: var(--pixel); font-weight: 700; line-height: 1.1; margin: 0; }
+
+.sprite { display: block; }
+.sprite svg { display: block; width: 100%; height: auto; }
+
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--gutter);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--pixel);
+  font-weight: 700;
+  color: var(--cream);
+  text-decoration: none;
+}
+.logo .sprite { width: 28px; }
+.nav ul { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.nav ul a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.nav ul a:hover { color: var(--cream); }
+
+/* ---------- Hero + skyline ---------- */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+  padding: 3rem var(--gutter) 0;
+  background: linear-gradient(var(--night) 40%, #2a1650 100%);
+  overflow: hidden;
+}
+.hero-copy { max-width: 36rem; }
+h1 {
+  font-size: clamp(2.3rem, 8.5vw, 6.5rem);
+  line-height: .9;
+  color: var(--cream);
+  text-shadow: .06em .06em 0 var(--pink), .12em .12em 0 var(--violet);
+  margin-bottom: 1.5rem;
+}
+.tagline { font-size: 1.2rem; max-width: 30rem; margin: 0 0 1.75rem; }
+
+.btn, .play {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--night);
+  background: var(--sun);
+  padding: .7rem 1.2rem;
+  border: 3px solid var(--cream);
+  box-shadow: 5px 5px 0 var(--pink);
+}
+.btn:active, .play:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--pink); }
+
+.transmission {
+  align-self: start;
+  width: min(100%, 22rem);
+  margin-top: 1rem;
+  padding: .9rem 1.1rem;
+  background: #0d0920;
+  border: 3px solid var(--aqua);
+  box-shadow: 6px 6px 0 var(--night-3);
+}
+.transmission-label { margin: 0 0 .4rem; font-size: .85rem; color: var(--aqua); display: flex; align-items: center; gap: .5rem; }
+.rec { width: 10px; height: 10px; background: var(--pink); animation: blink 1s steps(1) infinite; }
+#taunt { margin: 0; font-family: var(--pixel); font-size: .95rem; min-height: 3em; }
+
+.skyline {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 260px;
+  margin: 0 calc(var(--gutter) * -1);
+}
+.bldg {
+  position: relative;
+  flex: 1;
+  height: var(--h);
+  background-color: var(--night-2);
+}
+/* two window grids with different spacing, so the lit windows look scattered */
+.bldg::before {
+  content: "";
+  position: absolute;
+  inset: 14px 10px 0;
+  background:
+    radial-gradient(circle, var(--sun) 3px, transparent 3.5px) 0 0 / 22px 34px,
+    radial-gradient(circle, var(--aqua) 3px, transparent 3.5px) 11px 17px / 33px 51px;
+  opacity: .55;
+}
+.bldg.tall { background-color: var(--night-3); }
+.bldg .sprite {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: clamp(44px, 7vw, 76px);
+  margin-left: calc(clamp(44px, 7vw, 76px) / -2);
+  animation: hop 1.2s steps(1) infinite;
+}
+.bldg:nth-child(5) .sprite { animation-delay: .3s; }
+.bldg:nth-child(7) .sprite { animation-delay: .6s; }
+.bldg:nth-child(9) .sprite { animation-delay: .9s; }
+
+@keyframes hop { 50% { transform: translateY(-6px); } }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- Sections ---------- */
+main { padding: 0 var(--gutter); }
+main section { max-width: 1080px; margin: 0 auto; padding-top: 5.5rem; }
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem 2rem;
+  margin-bottom: 2rem;
+}
+.section-head h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.section-head p { margin: 0; color: var(--muted); max-width: 32rem; }
+.score b { color: var(--sun); font-family: var(--pixel); font-size: 1.3rem; }
+
+/* ---------- Game cartridges ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--night-2);
+  border: 3px solid var(--accent);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+.arena {
+  display: grid;
+  place-items: center;
+  height: 190px;
+  border-bottom: 3px solid var(--accent);
+  background:
+    linear-gradient(transparent 78%, color-mix(in srgb, var(--accent) 35%, transparent) 78%),
+    radial-gradient(circle at 50% 75%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 65%);
+}
+.arena .sprite { width: 120px; margin-top: 10px; }
+.card-body { display: flex; flex-direction: column; gap: .6rem; flex: 1; padding: 1.25rem 1.4rem 1.5rem; }
+.card-body p { margin: 0; }
+.step { color: var(--accent); font-weight: 600; }
+.card h3 { font-size: 1.7rem; }
+.quote { color: var(--muted); font-style: italic; }
+.card .play { margin-top: auto; align-self: flex-start; background: var(--accent); box-shadow: 5px 5px 0 var(--cream); }
+.card .play.soon {
+  background: transparent;
+  color: var(--muted);
+  border: 3px dashed var(--muted);
+  box-shadow: none;
+  transform: none;
+}
+.credit { font-size: .85rem; color: var(--muted); }
+
+.card.thwarted::after {
+  content: "Thwarted!";
+  position: absolute;
+  top: 1rem;
+  right: -.6rem;
+  padding: .3rem .7rem;
+  font-family: var(--pixel);
+  background: var(--pink);
+  color: var(--cream);
+  border: 3px solid var(--cream);
+  transform: rotate(8deg);
+}
+
+/* ---------- Handbook ---------- */
+.handbook-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.tip { padding: 1.5rem; border-left: 6px solid var(--accent); background: var(--night-2); }
+.tip h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 1rem; }
+.tip ul { margin: 0; padding-left: 1.2rem; }
+.tip li { margin-bottom: .6rem; }
+.tip li::marker { content: "■  "; color: var(--accent); font-size: .7em; }
+.sources { color: var(--muted); font-size: .9rem; margin-top: 1.5rem; }
+
+/* ---------- Squad ---------- */
+.squad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.member { text-align: center; }
+.member .sprite { width: 96px; margin: 0 auto 1rem; }
+.member h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.member p { margin: 0; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 6rem;
+  padding: 2rem var(--gutter);
+  border-top: 3px solid var(--night-3);
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 2rem;
+}
+.footer p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .transmission { margin-top: 0; }
+}
+
+@media (max-width: 760px) {
+  .skyline { height: 200px; gap: 3px; }
+  .card-grid, .handbook-grid { grid-template-columns: 1fr; }
+  .squad-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
