@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lockdown League</title>
+  <meta name="description" content="Four quick mini-games for Cybersecurity Awareness Month 2026. Heroes vs. villains. Don't make it easy for them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="logo" href="#top"><span class="sprite" data-sprite="shield"></span>Lockdown League</a>
+    <ul>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#handbook">Hero handbook</a></li>
+      <li><a href="#squad">The squad</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-copy">
+      <h1>Lockdown<br>League</h1>
+      <p class="tagline">Four villains are trying to hack their way into your accounts. Four quick games to stop them. Don't make it easy for them.</p>
+      <a class="btn" href="#games">Pick a fight ▸</a>
+    </div>
+
+    <div class="transmission" aria-live="polite">
+      <p class="transmission-label"><span class="rec"></span>Intercepted villain chat</p>
+      <p id="taunt">&gt; lol. nobody turns on MFA anyway</p>
+    </div>
+
+    <!-- Rooftop villains: the buildings with a sprite get a villain standing on top -->
+    <div class="skyline" aria-hidden="true">
+      <div class="bldg" style="--h:90px"></div>
+      <div class="bldg" style="--h:150px"><span class="sprite" data-sprite="crackjaw"></span></div>
+      <div class="bldg" style="--h:70px"></div>
+      <div class="bldg tall" style="--h:190px"></div>
+      <div class="bldg" style="--h:120px"><span class="sprite" data-sprite="pilfer"></span></div>
+      <div class="bldg" style="--h:80px"></div>
+      <div class="bldg" style="--h:165px"><span class="sprite" data-sprite="baitlyn"></span></div>
+      <div class="bldg tall" style="--h:110px"></div>
+      <div class="bldg" style="--h:135px"><span class="sprite" data-sprite="bugsy"></span></div>
+      <div class="bldg" style="--h:60px"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="games">
+      <div class="section-head">
+        <h2>Pick a fight</h2>
+        <p class="score">Villains thwarted: <b id="score">0</b> of 4</p>
+      </div>
+
+      <!--
+        When a game is ready, swap its <span class="play soon"> for:
+        <a class="play" href="games/FOLDER/index.html">Play ▸</a>
+      -->
+      <div class="card-grid">
+
+        <article class="card" data-id="passwords" style="--accent: var(--violet)">
+          <div class="arena"><span class="sprite" data-sprite="crackjaw"></span></div>
+          <div class="card-body">
+            <p class="step">Step 1: Use strong passwords</p>
+            <h3>Crackjaw</h3>
+            <p class="quote">"Fluffy2019? Cracked it before you finished typing."</p>
+            <p>Your power: long, unique passwords and a password manager.</p>
+            <span class="play soon">Coming soon</span>
+            <p class="credit">Built by Teammate 1</p>
+          </div>
+        </article>
+
+        <article class="card" data-id="mfa" style="--accent: var(--sun)">
+          <div class="arena"><span class="sprite" data-sprite="pilfer"></span></div>
+          <div class="card-body">
+            <p class="step">Step 2: Turn on multifactor authentication</p>
+            <h3>Pilfer</h3>
+            <p class="quote">"Stole your password. Walked right in. No second lock? Cute."</p>
+            <p>Your power: a second check that a stolen password can't get past.</p>
+            <span class="play soon">Coming soon</span>
+            <p class="credit">Built by Teammate 2</p>
+          </div>
+        </article>
+
+        <article class="card" data-id="phishing" style="--accent: var(--aqua)">
+          <div class="arena"><span class="sprite" data-sprite="baitlyn"></span></div>
+          <div class="card-body">
+            <p class="step">Step 3: Recognize and report phishing</p>
+            <h3>Baitlyn</h3>
+            <p class="quote">"URGENT!! Your package is stuck. Just click this totally real link."</p>
+            <p>Your power: spotting the bait, refusing to bite, and reporting it.</p>
+            <span class="play soon">Coming soon</span>
+            <p class="credit">Built by Teammate 3</p>
+          </div>
+        </article>
+
+        <article class="card" data-id="updates" style="--accent: var(--pink)">
+          <div class="arena"><span class="sprite" data-sprite="bugsy"></span></div>
+          <div class="card-body">
+            <p class="step">Step 4: Update your software</p>
+            <h3>Bugsy v1.0</h3>
+            <p class="quote">"'Remind me tomorrow' is my favorite button."</p>
+            <p>Your power: patching the holes before Bugsy crawls through them.</p>
+            <span class="play soon">Coming soon</span>
+            <p class="credit">Built by Teammate 4</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="handbook">
+      <div class="section-head">
+        <h2>Hero handbook</h2>
+        <p>Everything the games teach, on one page. Read it before you fight, or after you lose.</p>
+      </div>
+
+      <div class="handbook-grid">
+        <div class="tip" style="--accent: var(--violet)">
+          <h3>Use strong passwords</h3>
+          <ul>
+            <li>Long beats clever. Aim for at least 16 characters. A random string or a passphrase of 4–5 unrelated words both work.</li>
+            <li>Use a different password for every account, so one leak doesn't unlock everything.</li>
+            <li>Let a password manager create and remember them. You only memorize one.</li>
+            <li>Skip names, birthdays, pets and teams. Villains check those first.</li>
+          </ul>
+        </div>
+
+        <div class="tip" style="--accent: var(--sun)">
+          <h3>Turn on MFA</h3>
+          <ul>
+            <li>Multifactor authentication adds a second check after your password: an app code, a security key, a fingerprint or face scan, or a passkey.</li>
+            <li>Even if a villain steals your password, they get stuck at the second lock.</li>
+            <li>Turn it on first for email, banking and social media.</li>
+            <li>Authenticator apps, security keys and passkeys are stronger than text-message codes. Never share a code with anyone who asks for it.</li>
+          </ul>
+        </div>
+
+        <div class="tip" style="--accent: var(--aqua)">
+          <h3>Recognize and report phishing</h3>
+          <ul>
+            <li>Red flags: urgency or threats, prizes that are too good to be true, unexpected attachments, odd sender addresses, and requests for passwords, codes or money.</li>
+            <li>Hover over or long-press a link to see where it really goes. When in doubt, open the app or type the site address yourself.</li>
+            <li>Check with the sender another way, like calling a number you already know.</li>
+            <li>Report it with your email's "Report phishing" button or to your school or work IT, forward scam texts to 7726 (SPAM), then delete it.</li>
+          </ul>
+        </div>
+
+        <div class="tip" style="--accent: var(--pink)">
+          <h3>Update your software</h3>
+          <ul>
+            <li>Updates patch security holes that attackers already know about.</li>
+            <li>Turn on automatic updates for your phone, computer, browser and apps.</li>
+            <li>Install updates soon. "Remind me later" leaves the door open.</li>
+            <li>Only update from official places like app stores and settings menus. A pop-up saying your software is out of date can be a trap.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sources">Facts from <a href="https://www.cisa.gov/secure-our-world">CISA's Secure Our World</a> and the <a href="https://www.staysafeonline.org/cybersecurity-awareness-month">National Cybersecurity Alliance</a>.</p>
+    </section>
+
+    <section id="squad">
+      <div class="section-head">
+        <h2>The squad</h2>
+        <p>The heroes who built these games.</p>
+      </div>
+
+      <div class="squad-grid">
+        <div class="member">
+          <span class="sprite" data-sprite="hero" data-color="#9b6bff"></span>
+          <h3>Teammate 1</h3>
+          <p>Took down Crackjaw</p>
+        </div>
+        <div class="member">
+          <span class="sprite" data-sprite="hero" data-color="#ffcf3d"></span>
+          <h3>Teammate 2</h3>
+          <p>Took down Pilfer</p>
+        </div>
+        <div class="member">
+          <span class="sprite" data-sprite="hero" data-color="#33e1e8"></span>
+          <h3>Teammate 3</h3>
+          <p>Took down Baitlyn</p>
+        </div>
+        <div class="member">
+          <span class="sprite" data-sprite="hero" data-color="#ff4f9a"></span>
+          <h3>Teammate 4</h3>
+          <p>Took down Bugsy</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made for Cybersecurity Awareness Month, October 2026.</p>
+    <p>No villains were harmed. Okay, a few were.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
